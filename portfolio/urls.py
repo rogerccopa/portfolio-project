@@ -18,6 +18,10 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
+# this way we can refer to same module 'views' but within different projects
+import jobs.views
+
 urlpatterns = [
+    path('', jobs.views.homepage, name="home"),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
